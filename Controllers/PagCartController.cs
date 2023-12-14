@@ -31,5 +31,12 @@ namespace ApiPagamento.Controllers
             _service.CadastrarCartao(cartao);
             return StatusCode(204);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _service.RemoverCartao(id);
+            return StatusCode(204);
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ApiPagamento.Models
@@ -11,9 +12,10 @@ namespace ApiPagamento.Models
         [Key]
         public int PagCartId { get; set; }
         public string NumeroCartao { get; set; }
-        
-        [DisplayFormat(DataFormatString ="{O:MM/yyyy}", ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString ="MM/yyyy")]
         public DateTime DataValidade { get; set; }
         public string CodigoSeguranca {get; set;}
+        
+        
     }
 }

@@ -33,3 +33,4 @@ C:\Users\joaga\OneDrive\Área de Trabalho\Dev\ApiPagamento\obj\Debug\net8.0\refi
 C:\Users\joaga\OneDrive\Área de Trabalho\Dev\ApiPagamento\obj\Debug\net8.0\ApiPagamento.pdb
 C:\Users\joaga\OneDrive\Área de Trabalho\Dev\ApiPagamento\obj\Debug\net8.0\ApiPagamento.genruntimeconfig.cache
 C:\Users\joaga\OneDrive\Área de Trabalho\Dev\ApiPagamento\obj\Debug\net8.0\ref\ApiPagamento.dll
+C:\Users\joaga\OneDrive\Área de Trabalho\Dev\ApiPagamento\obj\Debug\net8.0\ApiPagamento.sourcelink.json
