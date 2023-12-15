@@ -11,9 +11,11 @@ namespace ApiPagamento.Models
         [Key]
         public int PagCartId { get; set; }
         public string NumeroCartao { get; set; }
-        
-        [DisplayFormat(DataFormatString ="{O:MM/yyyy}", ApplyFormatInEditMode =true)]
-        public DateTime DataValidade { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM}", ApplyFormatInEditMode = true)]
+        public string DataValidade { get; set; }
         public string CodigoSeguranca {get; set;}
+
+       
     }
 }
