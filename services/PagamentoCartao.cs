@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiPagamento.Context;
@@ -24,13 +26,25 @@ namespace ApiPagamento.services
             return _context.PagCartao.ToList();
         }
 
+       public void CadastrarCartao(PagamentoCartaoModel cartao)
+{
+    if (cartao.NumeroCartao.Length != 16 || !cartao.NumeroCartao.All(char.IsNumber))
+    {
+        throw new ArgumentException("Número do cartão inválido");
+    }
 
-        public void CadastrarCartao(PagamentoCartaoModel cartao)
-        {
-            _context.PagCartao.Add(cartao);
-            _context.SaveChanges();
-        }
+    if (cartao.CodigoSeguranca.Length != 3 || !cartao.CodigoSeguranca.All(char.IsNumber))
+    {
+        throw new ArgumentException("Código de segurança inválido");
+    }
 
+    
+
+    _context.Add(cartao);
+    _context.SaveChanges();
+}
+
+        
         public void RemoverCartao(int id)
         {
            var cartao = _context.PagCartao.Find(id);

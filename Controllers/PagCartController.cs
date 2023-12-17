@@ -26,10 +26,12 @@ namespace ApiPagamento.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(PagamentoCartaoModel cartao)
+        public IActionResult CadastrarNumCart(PagamentoCartaoModel cartao)
         {
-            _service.CadastrarCartao(cartao);
-            return StatusCode(204);
+             _service.CadastrarCartao(cartao);
+
+                return Ok("Numero do cartão cadastrado com sucesso");
+           
         }
 
         [HttpDelete("{id}")]
