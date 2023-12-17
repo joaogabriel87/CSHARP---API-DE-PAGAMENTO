@@ -28,17 +28,10 @@ namespace ApiPagamento.Controllers
         [HttpPost]
         public IActionResult CadastrarNumCart(PagamentoCartaoModel cartao)
         {
-            try
-            {
-                _service.CadastrarCartao(cartao);
+             _service.CadastrarCartao(cartao);
 
                 return Ok("Numero do cartão cadastrado com sucesso");
-            }
-            catch (System.Exception)
-            {
-                
-                return BadRequest("Erro ao cadastrar");
-            }
+           
         }
     }
 }
