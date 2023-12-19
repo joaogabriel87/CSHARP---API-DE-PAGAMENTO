@@ -48,7 +48,7 @@ namespace ApiPagamento.services
                 throw new ArgumentException("Chave do Pix inválida");
             }
 
-            // Se chegou até aqui, a chave do Pix é válida, então você pode adicionar ao contexto e salvar.
+           
             _context.Add(pix);
             _context.SaveChanges();
 
