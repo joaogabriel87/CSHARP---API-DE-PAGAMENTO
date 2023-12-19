@@ -11,6 +11,8 @@ namespace ApiPagamento.Models
         [Key]
         public int Id { get; set; }
         public string ChavePix {get;set;}
+
+        public string numeroPix {get;set;}
         public decimal Valor {get;set;}
     }
 }
