@@ -28,15 +28,10 @@ namespace ApiPagamento.Controllers
         [HttpPost]
         public IActionResult Pix(PagamentoPixModel pix)
         {
-            _service.CadastrarPix(pix);
-            return StatusCode(204);
+            _service.cadastrarPix(pix);
+            return Ok("Pix enviado com sucesso");
         }
 
-        [HttpPut("{id}")]
-        public IActionResult AlterarValor(PagamentoPixModel pix, int id)
-        {
-           _service.AjustarValor(pix,id);
-           return StatusCode(204);
-        }
+       
     }
 }

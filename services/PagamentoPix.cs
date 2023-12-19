@@ -20,23 +20,38 @@ namespace ApiPagamento.services
             return _context.PagPix.ToList();
         }
 
-        public void CadastrarPix(PagamentoPixModel pix)
+        public void cadastrarPix(PagamentoPixModel pix)
         {
-            _context.PagPix.Add(pix);
+            if (pix.ChavePix == "CPF")
+            {
+                if (pix.numeroPix.Length != 11 || !pix.numeroPix.All(char.IsDigit))
+                {
+                    throw new ArgumentException("CPF inválido");
+                }
+            }
+            else if (pix.ChavePix == "Telefone")
+            {
+                if (pix.numeroPix.Length != 11 || !pix.numeroPix.All(char.IsDigit))
+                {
+                    throw new ArgumentException("Telefone inválido");
+                }
+            }
+            else if (pix.ChavePix == "Email")
+            {
+                if (!pix.numeroPix.Contains('@'))
+                {
+                    throw new ArgumentException("Email inválido");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Chave do Pix inválida");
+            }
+
+            // Se chegou até aqui, a chave do Pix é válida, então você pode adicionar ao contexto e salvar.
+            _context.Add(pix);
             _context.SaveChanges();
-        }
 
-        public void AjustarValor(PagamentoPixModel pix, int id)
-        {
-           var buscarPix = _context.PagPix.Find(id);
-           
-           if (buscarPix != null )
-           {
-                buscarPix.Valor = pix.Valor;            
-           }
-
-           _context.PagPix.Update(buscarPix);
-           _context.SaveChanges();
         }
     }
 }
